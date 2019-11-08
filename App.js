@@ -1,12 +1,22 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { createStore, combineReducers } from 'redux'
+import { Provider } from 'react-redux'
+
+import productReducer from './app/store/reducers/product'
+import ShopNavigator from './app/navigation/ShopNavigator'
+
+const rootReducer = combineReducers({
+  product: productReducer
+})
+ 
+const store = createStore(rootReducer)
 
 export default class App extends React.Component {
   render() {
     return (
-      <View>
-        <Text>New App</Text>
-      </View>
+      <Provider store={store}>
+        <ShopNavigator />
+      </Provider>
     )
   }
 }

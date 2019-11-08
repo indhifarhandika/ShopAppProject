@@ -48,6 +48,22 @@ const PRODUCTS = [
     'https://cdn.pixabay.com/photo/2015/10/03/02/14/pen-969298_1280.jpg',
     "Can be used for role-playing (not the kind of role-playing you're thinking about...).",
     5.49
+  ),
+  new Product(
+    'p7',
+    'u1',
+    'Coffee Robusta',
+    'https://cdn.pixabay.com/photo/2016/04/26/16/58/coffe-1354786__340.jpg',
+    'Best Coffee in Indonesia',
+    12.6
+  ),
+  new Product(
+    'p8',
+    'u1',
+    'Burger Bos',
+    'https://thecheekychickpea.com/wp-content/uploads/2018/07/IMG_1013-2.jpg',
+    'The Best Burger Recipe',
+    13.57
   )
 ];
 

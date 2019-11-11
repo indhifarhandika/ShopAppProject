@@ -3,10 +3,12 @@ import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 
 import productReducer from './app/store/reducers/product'
+import cartReducer from './app/store/reducers/cart'
 import ShopNavigator from './app/navigation/ShopNavigator'
 
 const rootReducer = combineReducers({
-  product: productReducer
+  product: productReducer,
+  cart: cartReducer
 })
  
 const store = createStore(rootReducer)

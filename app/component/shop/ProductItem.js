@@ -1,22 +1,38 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet, Button } from 'react-native'
+import { View, Text, Image, StyleSheet, Button, TouchableOpacity,TouchableNativeFeedback, Platform } from 'react-native'
 import Color from '../../constants/Color'
 
 const ProductItem = props => {
+    let TouchableCmp = TouchableOpacity
+
+    if(Platform.OS === 'android' && Platform.Version >= 21) {
+        TouchableCmp = TouchableNativeFeedback
+    }
+
     return (
-        <View style={styles.product}>
-            <View style={styles.imageContainer}>
-                <Image style={styles.image} source={{ uri: props.image  }} />
+        <TouchableCmp onPress={props.onViewDetail}>
+            <View style={styles.product}>
+                <View style={styles.imageContainer}>
+                    <Image style={styles.image} source={{ uri: props.image  }} />
+                </View>
+                <View style={styles.detail}>
+                    <Text style={styles.title}>{props.title}</Text>
+                    <Text style={styles.price}>${props.price.toFixed(2)}</Text>
+                </View>
+                <View style={styles.actions}>
+                    <Button
+                        color={Color.primary}
+                        title="View Details"
+                        onPress={props.onViewDetail}
+                    />
+                    <Button
+                        color={Color.primary}
+                        title="To Cart"
+                        onPress={props.onAddToCart}
+                    />
+                </View>
             </View>
-            <View style={styles.detail}>
-                <Text style={styles.title}>{props.title}</Text>
-                <Text style={styles.price}>${props.price.toFixed(2)}</Text>
-            </View>
-            <View style={styles.actions}>
-                <Button color={Color.primary} title="View Details" onPress={props.onViewDetail} />
-                <Button color={Color.primary} title="To Cart" onPress={props.onAddToCart} />
-            </View>
-        </View>
+        </TouchableCmp>
     )
 }
 

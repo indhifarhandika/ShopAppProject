@@ -6,12 +6,15 @@ import Color from '../../constants/Color'
 import * as cartActions from '../../store/actions/cart'
 
 const ProductDetailScreen = props => {
+    // Menerima Parameter dari ProductId
     const productId = props.navigation.getParam('productId')
+    // Meload data dari productId
     const selectedProduct = useSelector(state => 
         state.product.availableProduct.find(prod => prod.id === productId)
     )
 
     const dispatch = useDispatch()
+    console.log(selectedProduct)
 
     return (
         <ScrollView>
